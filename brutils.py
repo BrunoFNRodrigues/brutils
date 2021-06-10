@@ -176,7 +176,11 @@ def ajuste_linear_grafico_x_fy(mask):
         return mask_rgb
     else:
         return None
-
+######## ROSTIME ##########
+#Condição para parar de girar
+w_vel = velocidade angular
+start_time = rospy.Time.now()#marca o tempo no instante
+if rospy.Time.now() - start_time >= rospy.Duration.from_sec(2.1 * math.pi / w_vel):
 ########## ODOMETRIA ############
 def recebe_odometria(data):
     global x
